@@ -1,3 +1,242 @@
-<!doctype html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Help Zone | Admin</title><link rel="stylesheet" href="/style.css"></head><body><header><a class="brand" href="/">HELP <span>ZONE</span></a><span class="nav">ADMIN PANEL</span></header><main class="wrap admin">
-<section class="panel" id="loginPanel"><h2>অ্যাডমিন লগইন</h2><p class="muted">আপনার অ্যাডমিন পাসওয়ার্ড দিয়ে প্রবেশ করুন।</p><form id="loginForm"><label>পাসওয়ার্ড<input type="password" name="password" required autocomplete="current-password"></label><button>লগইন</button><p id="loginNotice" class="notice" role="status"></p></form></section>
-<section class="panel hidden" id="inboxPanel"><div class="inboxHead"><div><h2>মেসেজ ইনবক্স</h2><p class="muted">কাস্টমারদের পাঠানো বার্তা</p></div><button class="secondary" id="logoutBtn">লগআউট</button></div><div id="messages"><p class="muted">মেসেজ লোড হচ্ছে...</p></div></section></main><footer>Help Zone Admin · Keep your password private</footer><script src="/admin.js"></script></body></html>
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102b57">
+  <title>Help Zone | Premium Admin</title>
+  <link rel="stylesheet" href="/style.css">
+
+  <style>
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top right,#e1edff,transparent 40%),
+        #f4f7fc;
+    }
+
+    .admin {
+      max-width: 850px;
+      margin: 55px auto;
+    }
+
+    .adminHero {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .adminHero .pill {
+      background: #e6efff;
+      color: #174ea6;
+      border: 1px solid #d2e2ff;
+    }
+
+    .adminHero h1 {
+      color: #102b57;
+      font-size: 32px;
+      margin: 15px 0 5px;
+    }
+
+    .adminHero p {
+      color: #71819c;
+    }
+
+    .loginIcon {
+      width: 65px;
+      height: 65px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 20px;
+      border-radius: 20px;
+      color: white;
+      font-size: 28px;
+      background: linear-gradient(135deg,#173b78,#3188ee);
+      box-shadow: 0 10px 25px #2563eb35;
+    }
+
+    .adminPanel {
+      border: 1px solid #e3eaf5;
+    }
+
+    .adminFooter {
+      text-align: center;
+      color: #8190a7;
+      font-size: 13px;
+      padding: 25px 10px;
+    }
+
+    #languageBtn {
+      width: auto;
+      margin: 0;
+      padding: 9px 15px;
+      background: #edf4ff;
+      color: #174ea6;
+      box-shadow: none;
+    }
+
+    #languageBtn:hover {
+      background: #dceaff;
+    }
+
+    @media(max-width:600px) {
+      .admin {
+        margin: 35px auto;
+      }
+
+      .adminHero h1 {
+        font-size: 27px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="brand" href="/">HELP <span>ZONE</span></a>
+
+  <div style="display:flex;align-items:center;gap:10px">
+    <button id="languageBtn" type="button">English</button>
+    <span class="nav">ADMIN</span>
+  </div>
+</header>
+
+<main class="wrap admin">
+
+  <div class="adminHero">
+    <div class="pill">HELP ZONE · ADMINISTRATION</div>
+    <h1>Admin Dashboard</h1>
+    <p data-bn="আপনার কাস্টমার সাপোর্ট পরিচালনা করুন"
+       data-en="Manage your customer support">
+      আপনার কাস্টমার সাপোর্ট পরিচালনা করুন
+    </p>
+  </div>
+
+  <!-- LOGIN PANEL -->
+  <section class="panel adminPanel" id="loginPanel">
+
+    <div class="loginIcon">🔐</div>
+
+    <h2 style="text-align:center"
+        data-bn="অ্যাডমিন লগইন"
+        data-en="Admin Login">
+      অ্যাডমিন লগইন
+    </h2>
+
+    <p class="muted" style="text-align:center"
+       data-bn="আপনার অ্যাডমিন পাসওয়ার্ড দিয়ে প্রবেশ করুন।"
+       data-en="Sign in using your administrator password.">
+      আপনার অ্যাডমিন পাসওয়ার্ড দিয়ে প্রবেশ করুন।
+    </p>
+
+    <form id="loginForm">
+
+      <label>
+        <span data-bn="পাসওয়ার্ড" data-en="Password">
+          পাসওয়ার্ড
+        </span>
+
+        <input
+          type="password"
+          name="password"
+          required
+          autocomplete="current-password"
+          placeholder="Admin Password">
+      </label>
+
+      <button type="submit"
+        data-bn="লগইন করুন"
+        data-en="Sign In">
+        লগইন করুন
+      </button>
+
+      <p id="loginNotice" class="notice" role="status"></p>
+
+    </form>
+  </section>
+
+  <!-- INBOX PANEL -->
+  <section class="panel adminPanel hidden" id="inboxPanel">
+
+    <div class="inboxHead">
+
+      <div>
+        <div class="pill"
+             style="background:#e7f1ff;color:#2563eb;border:0">
+          CUSTOMER SUPPORT
+        </div>
+
+        <h2 style="margin-top:12px"
+            data-bn="মেসেজ ইনবক্স"
+            data-en="Message Inbox">
+          মেসেজ ইনবক্স
+        </h2>
+
+        <p class="muted"
+           data-bn="কাস্টমারদের পাঠানো বার্তা"
+           data-en="Messages sent by customers">
+          কাস্টমারদের পাঠানো বার্তা
+        </p>
+      </div>
+
+      <button class="secondary" id="logoutBtn"
+        data-bn="লগআউট"
+        data-en="Logout">
+        লগআউট
+      </button>
+
+    </div>
+
+    <div id="messages">
+      <p class="muted"
+         data-bn="মেসেজ লোড হচ্ছে..."
+         data-en="Loading messages...">
+        মেসেজ লোড হচ্ছে...
+      </p>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="adminFooter">
+  © 2026 Help Zone ·
+  <span data-bn="নিরাপদ অ্যাডমিন প্যানেল"
+        data-en="Secure Admin Panel">
+    নিরাপদ অ্যাডমিন প্যানেল
+  </span>
+</footer>
+
+<script src="/admin.js"></script>
+
+<script>
+const languageBtn = document.getElementById("languageBtn");
+
+let currentLanguage =
+  localStorage.getItem("helpzone-admin-language") || "bn";
+
+function setAdminLanguage(language) {
+  currentLanguage = language;
+
+  document.documentElement.lang = language;
+
+  localStorage.setItem("helpzone-admin-language", language);
+
+  document.querySelectorAll("[data-bn][data-en]").forEach(element => {
+    element.textContent = element.dataset[language];
+  });
+
+  languageBtn.textContent =
+    language === "bn" ? "English" : "বাংলা";
+}
+
+languageBtn.addEventListener("click", () => {
+  setAdminLanguage(currentLanguage === "bn" ? "en" : "bn");
+});
+
+setAdminLanguage(currentLanguage);
+</script>
+
+</body>
+</html>
