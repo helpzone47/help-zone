@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#102b57">
-  <title>Help Zone | Premium Admin</title>
+  <meta name="description" content="Help Zone Premium Admin Panel">
+  <title>Help Zone | Admin Dashboard</title>
   <link rel="stylesheet" href="/style.css">
 
   <style>
@@ -17,13 +18,13 @@
     }
 
     .admin {
-      max-width: 850px;
+      width: min(850px,92%);
       margin: 55px auto;
     }
 
     .adminHero {
       text-align: center;
-      margin-bottom: 25px;
+      margin-bottom: 28px;
     }
 
     .adminHero .pill {
@@ -40,6 +41,15 @@
 
     .adminHero p {
       color: #71819c;
+      line-height: 1.9;
+    }
+
+    .adminPanel {
+      padding: 32px;
+      border: 1px solid #e3eaf5;
+      border-radius: 24px;
+      background: white;
+      box-shadow: 0 20px 60px rgba(15,35,75,.10);
     }
 
     .loginIcon {
@@ -55,8 +65,107 @@
       box-shadow: 0 10px 25px #2563eb35;
     }
 
-    .adminPanel {
+    .adminPanel h2 {
+      color: #102b57;
+    }
+
+    .adminPanel label {
+      display: block;
+      margin-top: 20px;
+      color: #233a60;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .adminPanel input,
+    .adminPanel textarea {
+      width: 100%;
+      padding: 14px;
+      margin-top: 10px;
+      border: 1px solid #dce5f2;
+      border-radius: 13px;
+      background: #f8faff;
+      outline: none;
+      font: inherit;
+    }
+
+    .adminPanel input:focus,
+    .adminPanel textarea:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 4px #2563eb18;
+    }
+
+    .adminPanel button {
+      cursor: pointer;
+    }
+
+    .adminPanel .secondary {
+      width: auto;
+      margin: 0;
+      padding: 11px 17px;
+      color: #245a9c;
+      background: #e9f1fc;
+      box-shadow: none;
+    }
+
+    .inboxHead {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .inboxHead .headActions {
+      display: flex;
+      gap: 9px;
+    }
+
+    .message {
+      margin-top: 17px;
+      padding: 21px;
       border: 1px solid #e3eaf5;
+      border-radius: 18px;
+      background: #fbfcff;
+      box-shadow: 0 5px 18px rgba(16,43,87,.05);
+    }
+
+    .message h3 {
+      margin: 0 0 10px;
+      color: #102b57;
+    }
+
+    .message p {
+      line-height: 1.9;
+      overflow-wrap: anywhere;
+    }
+
+    .messageText {
+      padding: 13px;
+      border-radius: 12px;
+      background: white;
+      white-space: pre-wrap;
+    }
+
+    .message .reply textarea {
+      min-height: 95px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .actions button {
+      width: auto;
+      flex: 1;
+      margin-top: 12px;
+    }
+
+    .actions .delete {
+      color: #b42318;
+      background: #fff0f0;
+      box-shadow: none;
     }
 
     .adminFooter {
@@ -66,17 +175,8 @@
       padding: 25px 10px;
     }
 
-    #languageBtn {
-      width: auto;
-      margin: 0;
-      padding: 9px 15px;
-      background: #edf4ff;
-      color: #174ea6;
-      box-shadow: none;
-    }
-
-    #languageBtn:hover {
-      background: #dceaff;
+    .hidden {
+      display: none !important;
     }
 
     @media(max-width:600px) {
@@ -87,34 +187,54 @@
       .adminHero h1 {
         font-size: 27px;
       }
+
+      .adminPanel {
+        padding: 23px 18px;
+      }
+
+      .inboxHead {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .inboxHead .headActions {
+        width: 100%;
+      }
+
+      .inboxHead .headActions button {
+        flex: 1;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <a class="brand" href="/">HELP <span>ZONE</span></a>
+<header class="site-header">
+  <a class="brand" href="/">
+    <span class="brand-icon">H</span>
+    <span>HELP <strong>ZONE</strong></span>
+  </a>
 
-  <div style="display:flex;align-items:center;gap:10px">
-    <button id="languageBtn" type="button">English</button>
-    <span class="nav">ADMIN</span>
+  <div class="header-actions">
+    <button id="languageBtn" class="language-btn" type="button">English</button>
   </div>
 </header>
 
-<main class="wrap admin">
+<main class="admin">
 
   <div class="adminHero">
     <div class="pill">HELP ZONE · ADMINISTRATION</div>
+
     <h1>Admin Dashboard</h1>
+
     <p data-bn="আপনার কাস্টমার সাপোর্ট পরিচালনা করুন"
        data-en="Manage your customer support">
       আপনার কাস্টমার সাপোর্ট পরিচালনা করুন
     </p>
   </div>
 
-  <!-- LOGIN PANEL -->
-  <section class="panel adminPanel" id="loginPanel">
+  <section class="adminPanel" id="loginPanel">
 
     <div class="loginIcon">🔐</div>
 
@@ -124,76 +244,70 @@
       অ্যাডমিন লগইন
     </h2>
 
-    <p class="muted" style="text-align:center"
+    <p class="admin-muted" style="text-align:center"
        data-bn="আপনার অ্যাডমিন পাসওয়ার্ড দিয়ে প্রবেশ করুন।"
        data-en="Sign in using your administrator password.">
       আপনার অ্যাডমিন পাসওয়ার্ড দিয়ে প্রবেশ করুন।
     </p>
 
     <form id="loginForm">
-
       <label>
-        <span data-bn="পাসওয়ার্ড" data-en="Password">
-          পাসওয়ার্ড
-        </span>
-
-        <input
-          type="password"
-          name="password"
-          required
-          autocomplete="current-password"
-          placeholder="Admin Password">
+        <span data-bn="পাসওয়ার্ড" data-en="Password">পাসওয়ার্ড</span>
+        <input type="password"
+               name="password"
+               required
+               autocomplete="current-password"
+               placeholder="Admin Password">
       </label>
 
-      <button type="submit"
-        data-bn="লগইন করুন"
-        data-en="Sign In">
+      <button type="submit" class="submit-btn"
+              data-bn="লগইন করুন"
+              data-en="Sign In">
         লগইন করুন
       </button>
 
       <p id="loginNotice" class="notice" role="status"></p>
-
     </form>
+
   </section>
 
-  <!-- INBOX PANEL -->
-  <section class="panel adminPanel hidden" id="inboxPanel">
+  <section class="adminPanel hidden" id="inboxPanel">
 
     <div class="inboxHead">
-
       <div>
-        <div class="pill"
-             style="background:#e7f1ff;color:#2563eb;border:0">
-          CUSTOMER SUPPORT
-        </div>
+        <div class="pill">CUSTOMER SUPPORT</div>
 
-        <h2 style="margin-top:12px"
-            data-bn="মেসেজ ইনবক্স"
+        <h2 data-bn="মেসেজ ইনবক্স"
             data-en="Message Inbox">
           মেসেজ ইনবক্স
         </h2>
 
-        <p class="muted"
+        <p class="admin-muted"
            data-bn="কাস্টমারদের পাঠানো বার্তা"
            data-en="Messages sent by customers">
           কাস্টমারদের পাঠানো বার্তা
         </p>
       </div>
 
-      <button class="secondary" id="logoutBtn"
-        data-bn="লগআউট"
-        data-en="Logout">
-        লগআউট
-      </button>
+      <div class="headActions">
+        <button class="secondary" id="refreshBtn"
+                type="button"
+                data-bn="রিফ্রেশ"
+                data-en="Refresh">
+          রিফ্রেশ
+        </button>
 
+        <button class="secondary" id="logoutBtn"
+                type="button"
+                data-bn="লগআউট"
+                data-en="Logout">
+          লগআউট
+        </button>
+      </div>
     </div>
 
     <div id="messages">
-      <p class="muted"
-         data-bn="মেসেজ লোড হচ্ছে..."
-         data-en="Loading messages...">
-        মেসেজ লোড হচ্ছে...
-      </p>
+      <p class="admin-muted">মেসেজ লোড হচ্ছে...</p>
     </div>
 
   </section>
@@ -211,31 +325,35 @@
 <script src="/admin.js"></script>
 
 <script>
-const languageBtn = document.getElementById("languageBtn");
+(() => {
+  const languageBtn = document.getElementById("languageBtn");
+  let currentLanguage =
+    localStorage.getItem("helpzone-admin-language") || "bn";
 
-let currentLanguage =
-  localStorage.getItem("helpzone-admin-language") || "bn";
+  function setLanguage(language) {
+    currentLanguage = language;
+    document.documentElement.lang = language;
 
-function setAdminLanguage(language) {
-  currentLanguage = language;
+    localStorage.setItem("helpzone-admin-language", language);
 
-  document.documentElement.lang = language;
+    document.querySelectorAll("[data-bn][data-en]").forEach(element => {
+      element.innerHTML = element.dataset[language];
+    });
 
-  localStorage.setItem("helpzone-admin-language", language);
+    languageBtn.textContent =
+      language === "bn" ? "English" : "বাংলা";
+  }
 
-  document.querySelectorAll("[data-bn][data-en]").forEach(element => {
-    element.textContent = element.dataset[language];
+  languageBtn.addEventListener("click", () => {
+    setLanguage(currentLanguage === "bn" ? "en" : "bn");
   });
 
-  languageBtn.textContent =
-    language === "bn" ? "English" : "বাংলা";
-}
+  setLanguage(currentLanguage);
 
-languageBtn.addEventListener("click", () => {
-  setAdminLanguage(currentLanguage === "bn" ? "en" : "bn");
-});
-
-setAdminLanguage(currentLanguage);
+  document.getElementById("refreshBtn").addEventListener("click", () => {
+    location.reload();
+  });
+})();
 </script>
 
 </body>
