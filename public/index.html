@@ -8,155 +8,201 @@
   <title>Help Zone | Customer Support</title>
   <link rel="stylesheet" href="/style.css">
 </head>
-
 <body>
 
-<header>
-  <a class="brand" href="/">HELP <span>ZONE</span></a>
+<header class="site-header">
+  <a class="brand" href="/">
+    <span class="brand-icon">H</span>
+    <span>HELP <strong>ZONE</strong></span>
+  </a>
 
-  <div style="display:flex;align-items:center;gap:12px">
-    <button id="languageBtn" type="button"
-      style="width:auto;margin:0;padding:9px 15px;background:#edf4ff;color:#174ea6;box-shadow:none">
-      English
-    </button>
+  <nav class="header-actions">
     <a class="nav" href="#send" data-bn="যোগাযোগ" data-en="Contact">যোগাযোগ</a>
-  </div>
+    <button id="languageBtn" class="language-btn" type="button">English</button>
+  </nav>
 </header>
 
 <section class="hero">
-  <div class="pill">HELP ZONE · CUSTOMER SUPPORT</div>
+  <div class="hero-content">
+    <div class="pill">
+      <span class="live-dot"></span>
+      HELP ZONE · CUSTOMER CARE
+    </div>
 
-  <h1 data-bn="আপনার পাশে, সবসময়"
-      data-en="We're Always Here For You">
-    আপনার পাশে, সবসময়
-  </h1>
+    <h1 data-bn="আপনার পাশে,<br>সবসময় আমরা" data-en="We're Here<br>For You, Always">
+      আপনার পাশে,<br>সবসময় আমরা
+    </h1>
 
-  <p data-bn="আপনার প্রশ্ন, মতামত বা সমস্যার কথা আমাদের জানান। আমাদের সাপোর্ট টিম আপনাকে সহায়তা করবে।"
-     data-en="Tell us your questions, feedback or problems. Our support team is always ready to help you.">
-    আপনার প্রশ্ন, মতামত বা সমস্যার কথা আমাদের জানান। আমাদের সাপোর্ট টিম আপনাকে সহায়তা করবে।
-  </p>
+    <p data-bn="আপনার যেকোনো প্রশ্ন, মতামত বা সমস্যায় আমাদের সাপোর্ট টিম সবসময় পাশে আছে। নিশ্চিন্তে আমাদের মেসেজ পাঠান।"
+       data-en="Our support team is always ready to help with your questions, feedback and problems. Send us a message anytime.">
+      আপনার যেকোনো প্রশ্ন, মতামত বা সমস্যায় আমাদের সাপোর্ট টিম সবসময় পাশে আছে। নিশ্চিন্তে আমাদের মেসেজ পাঠান।
+    </p>
+
+    <a href="#send" class="hero-button" data-bn="মেসেজ পাঠান →" data-en="Send a Message →">
+      মেসেজ পাঠান →
+    </a>
+  </div>
+
+  <div class="hero-decoration decoration-one"></div>
+  <div class="hero-decoration decoration-two"></div>
 </section>
 
-<main class="wrap">
+<main class="main-wrap">
 
-  <section class="panel" id="send">
+  <section class="feature-row">
+    <div class="feature">
+      <span class="feature-icon">✉</span>
+      <div>
+        <strong data-bn="সহজ যোগাযোগ" data-en="Easy Contact">সহজ যোগাযোগ</strong>
+        <small data-bn="সহজেই মেসেজ পাঠান" data-en="Send us a message easily">সহজেই মেসেজ পাঠান</small>
+      </div>
+    </div>
 
-    <h2 data-bn="আমাদের মেসেজ পাঠান"
-        data-en="Send Us a Message">
-      আমাদের মেসেজ পাঠান
-    </h2>
+    <div class="feature">
+      <span class="feature-icon">◷</span>
+      <div>
+        <strong data-bn="সাপোর্ট টিম" data-en="Support Team">সাপোর্ট টিম</strong>
+        <small data-bn="আপনাকে সহায়তা করতে প্রস্তুত" data-en="Ready to assist you">আপনাকে সহায়তা করতে প্রস্তুত</small>
+      </div>
+    </div>
 
-    <p class="muted"
-       data-bn="কোনো অ্যাকাউন্ট বা লগইন প্রয়োজন নেই। নিচের ফর্মটি পূরণ করুন।"
-       data-en="No account or login required. Simply fill out the form below.">
-      কোনো অ্যাকাউন্ট বা লগইন প্রয়োজন নেই। নিচের ফর্মটি পূরণ করুন।
-    </p>
-
-    <form id="contactForm">
-
-      <label>
-        <span data-bn="আপনার নাম" data-en="Your Name">আপনার নাম</span>
-        <input name="name" required maxlength="80"
-          data-placeholder-bn="নাম লিখুন"
-          data-placeholder-en="Enter your name"
-          placeholder="নাম লিখুন">
-      </label>
-
-      <label>
-        <span data-bn="মোবাইল / যোগাযোগের তথ্য"
-              data-en="Mobile / Contact Information">
-          মোবাইল / যোগাযোগের তথ্য
-        </span>
-        <input name="contact" required maxlength="80"
-          data-placeholder-bn="ফোন নম্বর বা ইমেইল"
-          data-placeholder-en="Phone number or email"
-          placeholder="ফোন নম্বর বা ইমেইল">
-      </label>
-
-      <label>
-        <span data-bn="বিষয়" data-en="Subject">বিষয়</span>
-        <select name="topic">
-          <option value="সাধারণ জিজ্ঞাসা" data-bn="সাধারণ জিজ্ঞাসা" data-en="General Inquiry">সাধারণ জিজ্ঞাসা</option>
-          <option value="সেবা সংক্রান্ত প্রশ্ন" data-bn="সেবা সংক্রান্ত প্রশ্ন" data-en="Service Question">সেবা সংক্রান্ত প্রশ্ন</option>
-          <option value="অভিযোগ" data-bn="অভিযোগ" data-en="Complaint">অভিযোগ</option>
-          <option value="পরামর্শ" data-bn="পরামর্শ" data-en="Suggestion">পরামর্শ</option>
-          <option value="অন্যান্য" data-bn="অন্যান্য" data-en="Other">অন্যান্য</option>
-        </select>
-      </label>
-
-      <label>
-        <span data-bn="আপনার মেসেজ" data-en="Your Message">আপনার মেসেজ</span>
-        <textarea name="body" required minlength="5" maxlength="2000"
-          data-placeholder-bn="আপনার মেসেজ লিখুন..."
-          data-placeholder-en="Write your message..."
-          placeholder="আপনার মেসেজ লিখুন..."></textarea>
-      </label>
-
-      <button type="submit" data-bn="মেসেজ পাঠান" data-en="Send Message">
-        মেসেজ পাঠান
-      </button>
-
-      <p id="notice" role="status" class="notice"></p>
-
-    </form>
+    <div class="feature">
+      <span class="feature-icon">✓</span>
+      <div>
+        <strong data-bn="নিরাপদ যোগাযোগ" data-en="Secure Contact">নিরাপদ যোগাযোগ</strong>
+        <small data-bn="আপনার তথ্যের গোপনীয়তা" data-en="Your privacy matters">আপনার তথ্যের গোপনীয়তা</small>
+      </div>
+    </div>
   </section>
 
-  <section class="help">
-    <h3 data-bn="সরাসরি যোগাযোগ" data-en="Direct Contact">
-      সরাসরি যোগাযোগ
-    </h3>
+  <section class="contact-grid">
 
-    <p>Telegram:
-      <a href="https://t.me/AG_Ai47" target="_blank" rel="noopener">
-        @AG_Ai47
-      </a>
+    <div class="form-panel" id="send">
+      <div class="section-heading">
+        <span class="eyebrow" data-bn="আমাদের সাথে কথা বলুন" data-en="GET IN TOUCH">আমাদের সাথে কথা বলুন</span>
+        <h2 data-bn="মেসেজ পাঠান" data-en="Send Us a Message">মেসেজ পাঠান</h2>
+        <p data-bn="নিচের ফর্মটি পূরণ করে আপনার কথা আমাদের জানান।"
+           data-en="Fill out the form below and tell us how we can help.">
+          নিচের ফর্মটি পূরণ করে আপনার কথা আমাদের জানান।
+        </p>
+      </div>
+
+      <form id="contactForm">
+
+        <label>
+          <span data-bn="আপনার নাম" data-en="Your Name">আপনার নাম</span>
+          <input name="name" required maxlength="80"
+            data-placeholder-bn="আপনার নাম লিখুন"
+            data-placeholder-en="Enter your name"
+            placeholder="আপনার নাম লিখুন">
+        </label>
+
+        <label>
+          <span data-bn="মোবাইল / ইমেইল" data-en="Mobile / Email">মোবাইল / ইমেইল</span>
+          <input name="contact" required maxlength="80"
+            data-placeholder-bn="ফোন নম্বর বা ইমেইল লিখুন"
+            data-placeholder-en="Enter phone number or email"
+            placeholder="ফোন নম্বর বা ইমেইল লিখুন">
+        </label>
+
+        <label>
+          <span data-bn="মেসেজের বিষয়" data-en="Message Subject">মেসেজের বিষয়</span>
+          <select name="topic">
+            <option value="সাধারণ জিজ্ঞাসা" data-bn="সাধারণ জিজ্ঞাসা" data-en="General Inquiry">সাধারণ জিজ্ঞাসা</option>
+            <option value="সেবা সংক্রান্ত প্রশ্ন" data-bn="সেবা সংক্রান্ত প্রশ্ন" data-en="Service Question">সেবা সংক্রান্ত প্রশ্ন</option>
+            <option value="অভিযোগ" data-bn="অভিযোগ" data-en="Complaint">অভিযোগ</option>
+            <option value="পরামর্শ" data-bn="পরামর্শ" data-en="Suggestion">পরামর্শ</option>
+            <option value="অন্যান্য" data-bn="অন্যান্য" data-en="Other">অন্যান্য</option>
+          </select>
+        </label>
+
+        <label>
+          <span data-bn="আপনার মেসেজ" data-en="Your Message">আপনার মেসেজ</span>
+          <textarea name="body" required minlength="5" maxlength="2000"
+            data-placeholder-bn="বিস্তারিত লিখুন..."
+            data-placeholder-en="Write your message..."
+            placeholder="বিস্তারিত লিখুন..."></textarea>
+        </label>
+
+        <button type="submit" class="submit-btn"
+          data-bn="মেসেজ পাঠান →" data-en="Send Message →">
+          মেসেজ পাঠান →
+        </button>
+
+        <p id="notice" role="status" class="notice"></p>
+      </form>
+    </div>
+
+    <aside class="side-panel">
+      <div class="side-card">
+        <div class="side-icon">💬</div>
+        <h3 data-bn="আমরা শুনছি আপনার কথা" data-en="We're Listening">আমরা শুনছি আপনার কথা</h3>
+        <p data-bn="আপনার মতামত ও সমস্যাগুলো আমাদের কাছে গুরুত্বপূর্ণ। যেকোনো প্রয়োজনে মেসেজ পাঠান।"
+           data-en="Your feedback and concerns matter to us. Send us a message whenever you need help.">
+          আপনার মতামত ও সমস্যাগুলো আমাদের কাছে গুরুত্বপূর্ণ। যেকোনো প্রয়োজনে মেসেজ পাঠান।
+        </p>
+      </div>
+
+      <div class="side-card direct-card">
+        <span class="eyebrow" data-bn="সরাসরি যোগাযোগ" data-en="DIRECT CONTACT">সরাসরি যোগাযোগ</span>
+        <h3 data-bn="আমাদের সাথে যুক্ত থাকুন" data-en="Connect With Us">আমাদের সাথে যুক্ত থাকুন</h3>
+
+        <a class="telegram-link" href="https://t.me/AG_Ai47" target="_blank" rel="noopener">
+          <span class="telegram-icon">➤</span>
+          <span>
+            <strong>Telegram</strong>
+            <small>@AG_Ai47</small>
+          </span>
+          <span class="link-arrow">↗</span>
+        </a>
+      </div>
+
+      <div class="privacy-note">
+        <span>🔒</span>
+        <p data-bn="আপনার দেওয়া তথ্য শুধু সাপোর্টের প্রয়োজনে ব্যবহার করা হবে।"
+           data-en="Your information is used only for support purposes.">
+          আপনার দেওয়া তথ্য শুধু সাপোর্টের প্রয়োজনে ব্যবহার করা হবে।
+        </p>
+      </div>
+    </aside>
+
+  </section>
+
+  <section class="tracking-panel" id="track-section">
+    <div class="tracking-icon">✉</div>
+    <span class="eyebrow" data-bn="মেসেজের আপডেট" data-en="MESSAGE UPDATES">মেসেজের আপডেট</span>
+    <h2 data-bn="আপনার উত্তরের খোঁজ নিন" data-en="Check Your Reply">আপনার উত্তরের খোঁজ নিন</h2>
+    <p data-bn="আপনার Tracking Code দিয়ে মেসেজের উত্তর খুঁজে দেখুন।"
+       data-en="Enter your Tracking Code to check your message reply.">
+      আপনার Tracking Code দিয়ে মেসেজের উত্তর খুঁজে দেখুন।
     </p>
 
-    <p class="muted"
-       data-bn="WhatsApp যোগাযোগের নম্বর পরে যুক্ত করা যাবে।"
-       data-en="WhatsApp contact number can be added later.">
-      WhatsApp যোগাযোগের নম্বর পরে যুক্ত করা যাবে।
-    </p>
+    <div class="tracking-form">
+      <input id="trackingCode" type="text"
+        data-placeholder-bn="Tracking Code লিখুন"
+        data-placeholder-en="Enter Tracking Code"
+        placeholder="Tracking Code">
+      <button id="checkReply" type="button"
+        data-bn="উত্তর দেখুন" data-en="Check Reply">
+        উত্তর দেখুন
+      </button>
+    </div>
+
+    <p id="replyNotice" role="status"></p>
+    <div id="replyResult"></div>
   </section>
 
 </main>
 
-<section id="track-section"
-  style="max-width:600px;width:92%;margin:30px auto;padding:25px;border:1px solid #ddd;border-radius:18px;background:white">
-
-  <h2 data-bn="আপনার মেসেজের উত্তর দেখুন"
-      data-en="Check Your Message Reply">
-    আপনার মেসেজের উত্তর দেখুন
-  </h2>
-
-  <p data-bn="আপনার Tracking Code লিখুন।"
-     data-en="Enter your Tracking Code.">
-    আপনার Tracking Code লিখুন।
+<footer class="site-footer">
+  <a class="brand footer-brand" href="/">HELP <strong>ZONE</strong></a>
+  <p data-bn="আপনার আস্থাই আমাদের অনুপ্রেরণা।" data-en="Your trust inspires us.">
+    আপনার আস্থাই আমাদের অনুপ্রেরণা।
   </p>
-
-  <input id="trackingCode" type="text"
-    data-placeholder-bn="Tracking Code লিখুন"
-    data-placeholder-en="Enter Tracking Code"
-    placeholder="Tracking Code"
-    style="width:100%;padding:13px;margin:10px 0;box-sizing:border-box">
-
-  <button id="checkReply" type="button"
-    data-bn="উত্তর দেখুন" data-en="Check Reply"
-    style="padding:13px 20px;cursor:pointer">
-    উত্তর দেখুন
-  </button>
-
-  <p id="replyNotice" role="status"></p>
-  <div id="replyResult"></div>
-
-</section>
-
-<footer>
-  © 2026 Help Zone · Customer Support
+  <small>© 2026 Help Zone · Customer Support</small>
 </footer>
 
 <script src="/app.js"></script>
-
 <script>
 const languageBtn = document.getElementById("languageBtn");
 let currentLanguage = localStorage.getItem("helpzone-language") || "bn";
@@ -167,11 +213,7 @@ function changeLanguage(language) {
   localStorage.setItem("helpzone-language", language);
 
   document.querySelectorAll("[data-bn][data-en]").forEach(element => {
-    if (element.tagName === "OPTION") {
-      element.textContent = element.dataset[language];
-    } else {
-      element.textContent = element.dataset[language];
-    }
+    element.innerHTML = element.dataset[language];
   });
 
   document.querySelectorAll("[data-placeholder-bn]").forEach(element => {
@@ -189,14 +231,13 @@ languageBtn.addEventListener("click", () => {
 
 changeLanguage(currentLanguage);
 
-// Tracking Code reply checker
 document.getElementById("checkReply").addEventListener("click", async () => {
   const code = document.getElementById("trackingCode").value.trim();
   const notice = document.getElementById("replyNotice");
   const result = document.getElementById("replyResult");
 
   notice.textContent = currentLanguage === "bn" ? "খোঁজা হচ্ছে..." : "Searching...";
-  result.textContent = "";
+  result.replaceChildren();
 
   if (!code) {
     notice.textContent = currentLanguage === "bn"
@@ -210,7 +251,9 @@ document.getElementById("checkReply").addEventListener("click", async () => {
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(data.error || "Message not found.");
+      throw new Error(data.error || (
+        currentLanguage === "bn" ? "মেসেজ পাওয়া যায়নি।" : "Message not found."
+      ));
     }
 
     notice.textContent = currentLanguage === "bn"
