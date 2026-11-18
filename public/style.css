@@ -1,1 +1,126 @@
+/* Help Zone Premium UI — matched to the existing index.html selectors.
+Replace the complete contents of style.css with this file. */
 
+:root{
+--navy:#071a3d;--navy2:#0b2d63;--blue:#1268e8;--cyan:#26d4ef;
+--ink:#10264c;--muted:#687b98;--line:#dce8fb;--soft:#f2f7ff;
+--shadow:0 22px 60px rgba(10,43,99,.16);
+}
+{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;min-height:100vh;color:var(--ink);
+font-family:Inter,system-ui,-apple-system,"Segoe UI","Noto Sans Bengali",sans-serif;
+background:radial-gradient(circle at 8% 8%,#dcecff 0,transparent 34rem),
+radial-gradient(circle at 94% 36%,#dcfaff 0,transparent 28rem),
+linear-gradient(180deg,#f8fbff,#edf4ff);
+-webkit-font-smoothing:antialiased
+}
+header{
+min-height:76px;height:auto;padding:12px max(4%,calc((100% - 1120px)/2));
+display:flex;align-items:center;justify-content:space-between;gap:18px;
+background:rgba(7,26,61,.96);border-bottom:1px solid #ffffff20;
+box-shadow:0 8px 28px #06173525;position:sticky;top:0;z-index:20;
+backdrop-filter:blur(16px)
+}
+.brand{font-weight:950;font-size:25px;letter-spacing:-.5px;color:#fff;text-decoration:none;white-space:nowrap}
+.brand span{color:var(--cyan)}
+.nav{color:#e8f5ff;text-decoration:none;font-weight:800;padding:10px 16px;border-radius:999px;border:1px solid #ffffff28;background:#ffffff12}
+.nav:hover{background:#ffffff22}
+#languageBtn,#languageToggle,#langToggle,[data-lang-toggle],.language-toggle{
+color:#fff;background:#ffffff16;border:1px solid #ffffff35;border-radius:999px;
+padding:9px 14px;font-weight:800;cursor:pointer
+}
+.hero{
+position:relative;isolation:isolate;overflow:hidden;text-align:left;
+padding:clamp(70px,9vw,112px) max(5%,calc((100% - 1120px)/2)) 105px;
+color:white;background:
+radial-gradient(circle at 82% 36%,#1ac9ed45,transparent 18rem),
+radial-gradient(circle at 12% 8%,#287cff55,transparent 25rem),
+linear-gradient(125deg,#061735 0%,#0b2d63 58%,#0755a2 100%)
+}
+.hero:before{content:"";position:absolute;z-index:-1;width:430px;height:430px;right:-130px;top:-230px;border:1px solid #70d8ff40;border-radius:50%;box-shadow:0 0 0 38px #46bfff0b,0 0 0 82px #46bfff0a}
+.hero:after{content:"";position:absolute;z-index:-1;width:230px;height:230px;left:-140px;bottom:-170px;border:1px solid #70d8ff35;border-radius:50%}
+.pill{display:inline-flex;align-items:center;border:1px solid #9fdcff55;border-radius:99px;padding:9px 15px;font-size:11px;letter-spacing:1.3px;font-weight:900;color:#e4faff;background:#ffffff12}
+.hero h1{max-width:780px;font-size:clamp(38px,6vw,66px);line-height:1.12;letter-spacing:-1.8px;margin:22px 0 14px;font-weight:950}
+.hero h1 span{color:#37d9f1}
+.hero p{max-width:650px;margin:0;line-height:1.9;color:#dcecff;font-size:clamp(15px,1.8vw,18px)}
+.wrap{
+width:min(1080px,92%);margin:-48px auto 70px;position:relative;z-index:2;
+display:grid;grid-template-columns:minmax(0,1.5fr) minmax(250px,.8fr);gap:22px;align-items:start
+}
+.panel{
+min-width:0;background:rgba(255,255,255,.96);padding:clamp(23px,3.5vw,36px);
+border:1px solid #dce8fb;border-radius:25px;box-shadow:var(--shadow)
+}
+.panel h2{margin:0 0 9px;font-size:clamp(23px,3vw,29px);font-weight:950;letter-spacing:-.6px;color:var(--navy)}
+.muted{color:var(--muted);line-height:1.8;margin:0 0 18px}
+label{display:block;font-weight:800;margin:17px 0 0;color:#1b3764;font-size:14px}
+input,select,textarea{
+display:block;width:100%;margin-top:8px;padding:14px 15px;min-height:50px;
+border:1px solid #d5e3f6;border-radius:13px;font:inherit;color:var(--ink);
+background:#f8fbff;outline:none;transition:border-color .2s,box-shadow .2s,background .2s
+}
+input::placeholder,textarea::placeholder{color:#94a3b8}
+input:focus,select:focus,textarea:focus{background:#fff;border-color:#2585f4;box-shadow:0 0 0 4px #2585f41c}
+textarea{min-height:135px;resize:vertical;line-height:1.65}
+button{
+width:100%;border:0;border-radius:14px;
+background:linear-gradient(110deg,#075fe0,#138ef4 60%,#13b9df);
+color:#fff;padding:15px 18px;font:inherit;font-weight:900;margin-top:20px;
+cursor:pointer;box-shadow:0 10px 24px #1268e833;transition:transform .2s,filter .2s
+}
+button:hover{filter:brightness(1.06);transform:translateY(-2px)}
+button:disabled{opacity:.6;cursor:wait;transform:none}
+.notice{min-height:22px;font-size:14px;color:#176b47;font-weight:700;margin-top:12px}
+.notice.error{color:#b42318}
+.help{
+margin-top:0;padding:25px;border-radius:23px;
+background:radial-gradient(circle at 100% 0,#26d4ef35,transparent 48%),
+linear-gradient(145deg,#08234e,#075bb4);
+color:#fff;box-shadow:0 17px 38px #082b6030;border:1px solid #ffffff18
+}
+.help h3{margin:0 0 10px;color:#fff;font-size:20px}
+.help p{color:#dcecff;line-height:1.8}
+.help a{display:inline-flex;color:#fff;font-weight:900;text-decoration:none;padding:11px 16px;margin-top:10px;border-radius:12px;background:#ffffff1b;border:1px solid #ffffff35}
+.help a:hover{background:#ffffff2c}
+footer{
+text-align:center;color:#b8cbe7;font-size:13px;padding:28px 18px;
+background:linear-gradient(120deg,#061735,#0b2d63)
+}
+footer a{color:#fff}
+.admin{margin:40px auto}
+.hidden{display:none!important}
+.inboxHead{display:flex;justify-content:space-between;align-items:center;gap:15px}
+.inboxHead .secondary{width:auto;margin:0;background:#e9f1fc;color:#245a9c;padding:10px 15px;box-shadow:none}
+.message{border:1px solid #e2eaf5;border-radius:16px;padding:18px;margin-top:14px;background:#fbfdff}
+.message h3{margin:0 0 5px;color:var(--navy)}
+.meta{font-size:13px;color:#7888a1}
+.messageText{white-space:pre-wrap;line-height:1.7}
+.reply{margin-top:12px}
+.reply textarea{min-height:85px}
+.actions{display:flex;gap:9px}
+.actions button{margin-top:10px}
+.actions .delete{background:#fff0f0;color:#b42318;box-shadow:none}
+.status{display:inline-block;background:#fff4d9;color:#8b6100;padding:5px 10px;border-radius:20px;font-size:12px;font-weight:800}
+.status.replied{background:#e4f7ed;color:#176b47}
+@media(max-width:760px){
+header{padding:11px 4%;min-height:66px}
+.wrap{grid-template-columns:1fr;gap:15px;margin-top:-38px}
+.help{order:2}
+.hero{padding:58px 6% 78px}
+.hero h1{letter-spacing:-1px}
+}
+@media(max-width:520px){
+header{flex-wrap:wrap;gap:8px}
+.brand{font-size:21px}
+.nav{font-size:13px;padding:8px 11px}
+.hero{padding:48px 5% 70px}
+.hero h1{font-size:37px}
+.wrap{width:92%;margin-top:-32px}
+.panel{padding:21px;border-radius:21px}
+.help{padding:22px}
+.inboxHead{align-items:flex-start}
+.actions{flex-wrap:wrap}
+}
+@media(prefers-reduced-motion:reduce){,:before,:after{scroll-behavior:auto!important;transition:none!important}}
