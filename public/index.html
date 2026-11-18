@@ -1,283 +1,266 @@
+
 <!DOCTYPE html>
 <html lang="bn">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#102b57">
+  <meta name="theme-color" content="#101d3a">
   <meta name="description" content="Help Zone - Premium Customer Support">
   <title>Help Zone | Customer Support</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
 <header class="site-header">
-  <a class="brand" href="/">
-    <span class="brand-icon">H</span>
-    <span>HELP <strong>ZONE</strong></span>
-  </a>
+  <div class="container header-inner">
+    <a class="brand" href="#">
+      <span class="brand-icon">✦</span>
+      <span>HELP <strong>ZONE</strong><small>PREMIUM SUPPORT CENTER</small></span>
+    </a>
 
-  <nav class="header-actions">
-    <a class="nav" href="#send" data-bn="যোগাযোগ" data-en="Contact">যোগাযোগ</a>
-    <button id="languageBtn" class="language-btn" type="button">English</button>
-  </nav>
+    <nav class="nav-links">
+      <a href="#home" data-bn="হোম" data-en="Home">হোম</a>
+      <a href="#contact" data-bn="যোগাযোগ" data-en="Contact">যোগাযোগ</a>
+      <a href="#tracking" data-bn="ট্র্যাকিং" data-en="Tracking">ট্র্যাকিং</a>
+    </nav>
+
+    <button class="language-btn" id="languageToggle" type="button">EN</button>
+  </div>
 </header>
 
-<section class="hero">
-  <div class="hero-content">
-    <div class="pill">
-      <span class="live-dot"></span>
-      HELP ZONE · CUSTOMER CARE
-    </div>
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span class="status-dot"></span>
+        <span data-bn="আমরা আপনাকে সাহায্য করতে প্রস্তুত" data-en="We're ready to help you">আমরা আপনাকে সাহায্য করতে প্রস্তুত</span>
+      </div>
 
-    <h1 data-bn="আপনার পাশে,<br>সবসময় আমরা" data-en="We're Here<br>For You, Always">
-      আপনার পাশে,<br>সবসময় আমরা
-    </h1>
+      <h1 data-bn="আপনার সমস্যার<br>সমাধান <span>এখানেই।</span>" data-en="Your Problems.<br><span>Our Solutions.</span>">
+        আপনার সমস্যার<br>সমাধান <span>এখানেই।</span>
+      </h1>
 
-    <p data-bn="আপনার যেকোনো প্রশ্ন, মতামত বা সমস্যায় আমাদের সাপোর্ট টিম সবসময় পাশে আছে। নিশ্চিন্তে আমাদের মেসেজ পাঠান।"
-       data-en="Our support team is always ready to help with your questions, feedback and problems. Send us a message anytime.">
-      আপনার যেকোনো প্রশ্ন, মতামত বা সমস্যায় আমাদের সাপোর্ট টিম সবসময় পাশে আছে। নিশ্চিন্তে আমাদের মেসেজ পাঠান।
-    </p>
+      <p data-bn="যেকোনো প্রশ্ন, অভিযোগ বা মতামত আমাদের জানান। আমাদের সাপোর্ট টিম যত দ্রুত সম্ভব আপনার পাশে থাকবে।"
+         data-en="Tell us about any question, complaint or feedback. Our support team is here to help you as soon as possible.">
+        যেকোনো প্রশ্ন, অভিযোগ বা মতামত আমাদের জানান। আমাদের সাপোর্ট টিম যত দ্রুত সম্ভব আপনার পাশে থাকবে।
+      </p>
 
-    <a href="#send" class="hero-button" data-bn="মেসেজ পাঠান →" data-en="Send a Message →">
-      মেসেজ পাঠান →
-    </a>
-  </div>
+      <div class="hero-actions">
+        <a href="#contact" class="primary-btn" data-bn="সাপোর্টে যোগাযোগ করুন →" data-en="Contact Support →">সাপোর্টে যোগাযোগ করুন →</a>
+        <a href="#tracking" class="secondary-btn" data-bn="মেসেজ ট্র্যাক করুন" data-en="Track Message">মেসেজ ট্র্যাক করুন</a>
+      </div>
 
-  <div class="hero-decoration decoration-one"></div>
-  <div class="hero-decoration decoration-two"></div>
-</section>
-
-<main class="main-wrap">
-
-  <section class="feature-row">
-    <div class="feature">
-      <span class="feature-icon">✉</span>
-      <div>
-        <strong data-bn="সহজ যোগাযোগ" data-en="Easy Contact">সহজ যোগাযোগ</strong>
-        <small data-bn="সহজেই মেসেজ পাঠান" data-en="Send us a message easily">সহজেই মেসেজ পাঠান</small>
+      <div class="hero-stats">
+        <div><strong>24/7</strong><span data-bn="অনলাইন সাপোর্ট" data-en="Online Support">অনলাইন সাপোর্ট</span></div>
+        <div><strong>100%</strong><span data-bn="সহায়তার চেষ্টা" data-en="Support Commitment">সহায়তার চেষ্টা</span></div>
+        <div><strong>1:1</strong><span data-bn="ব্যক্তিগত সেবা" data-en="Personal Assistance">ব্যক্তিগত সেবা</span></div>
       </div>
     </div>
-
-    <div class="feature">
-      <span class="feature-icon">◷</span>
-      <div>
-        <strong data-bn="সাপোর্ট টিম" data-en="Support Team">সাপোর্ট টিম</strong>
-        <small data-bn="আপনাকে সহায়তা করতে প্রস্তুত" data-en="Ready to assist you">আপনাকে সহায়তা করতে প্রস্তুত</small>
-      </div>
-    </div>
-
-    <div class="feature">
-      <span class="feature-icon">✓</span>
-      <div>
-        <strong data-bn="নিরাপদ যোগাযোগ" data-en="Secure Contact">নিরাপদ যোগাযোগ</strong>
-        <small data-bn="আপনার তথ্যের গোপনীয়তা" data-en="Your privacy matters">আপনার তথ্যের গোপনীয়তা</small>
-      </div>
-    </div>
+    <div class="hero-decoration decoration-one"></div>
+    <div class="hero-decoration decoration-two"></div>
   </section>
 
-  <section class="contact-grid">
-
-    <div class="form-panel" id="send">
+  <section class="features-section">
+    <div class="container">
       <div class="section-heading">
-        <span class="eyebrow" data-bn="আমাদের সাথে কথা বলুন" data-en="GET IN TOUCH">আমাদের সাথে কথা বলুন</span>
-        <h2 data-bn="মেসেজ পাঠান" data-en="Send Us a Message">মেসেজ পাঠান</h2>
-        <p data-bn="নিচের ফর্মটি পূরণ করে আপনার কথা আমাদের জানান।"
-           data-en="Fill out the form below and tell us how we can help.">
-          নিচের ফর্মটি পূরণ করে আপনার কথা আমাদের জানান।
+        <span class="eyebrow" data-bn="আমাদের সেবা" data-en="OUR SERVICES">আমাদের সেবা</span>
+        <h2 data-bn="কীভাবে সাহায্য করতে পারি?" data-en="How can we help you?">কীভাবে সাহায্য করতে পারি?</h2>
+        <p data-bn="আপনার প্রয়োজন অনুযায়ী আমাদের সাপোর্ট সেবা ব্যবহার করুন।"
+           data-en="Choose the support service that matches your needs.">
+          আপনার প্রয়োজন অনুযায়ী আমাদের সাপোর্ট সেবা ব্যবহার করুন।
         </p>
       </div>
 
-      <form id="contactForm">
+      <div class="feature-row">
+        <article class="surface feature-card">
+          <div class="feature-icon">✉</div>
+          <h3 data-bn="সরাসরি যোগাযোগ" data-en="Direct Contact">সরাসরি যোগাযোগ</h3>
+          <p data-bn="আপনার প্রশ্ন বা সমস্যা আমাদের কাছে পাঠান।" data-en="Send your questions or problems directly to us.">আপনার প্রশ্ন বা সমস্যা আমাদের কাছে পাঠান।</p>
+        </article>
 
-        <label>
-          <span data-bn="আপনার নাম" data-en="Your Name">আপনার নাম</span>
-          <input name="name" required maxlength="80"
-            data-placeholder-bn="আপনার নাম লিখুন"
-            data-placeholder-en="Enter your name"
-            placeholder="আপনার নাম লিখুন">
-        </label>
+        <article class="surface feature-card">
+          <div class="feature-icon">⌕</div>
+          <h3 data-bn="মেসেজ ট্র্যাকিং" data-en="Message Tracking">মেসেজ ট্র্যাকিং</h3>
+          <p data-bn="ট্র্যাকিং কোড দিয়ে আপনার মেসেজের উত্তর দেখুন।" data-en="Check your message reply using your tracking code.">ট্র্যাকিং কোড দিয়ে আপনার মেসেজের উত্তর দেখুন।</p>
+        </article>
 
-        <label>
-          <span data-bn="মোবাইল / ইমেইল" data-en="Mobile / Email">মোবাইল / ইমেইল</span>
-          <input name="contact" required maxlength="80"
-            data-placeholder-bn="ফোন নম্বর বা ইমেইল লিখুন"
-            data-placeholder-en="Enter phone number or email"
-            placeholder="ফোন নম্বর বা ইমেইল লিখুন">
-        </label>
-
-        <label>
-          <span data-bn="মেসেজের বিষয়" data-en="Message Subject">মেসেজের বিষয়</span>
-          <select name="topic">
-            <option value="সাধারণ জিজ্ঞাসা" data-bn="সাধারণ জিজ্ঞাসা" data-en="General Inquiry">সাধারণ জিজ্ঞাসা</option>
-            <option value="সেবা সংক্রান্ত প্রশ্ন" data-bn="সেবা সংক্রান্ত প্রশ্ন" data-en="Service Question">সেবা সংক্রান্ত প্রশ্ন</option>
-            <option value="অভিযোগ" data-bn="অভিযোগ" data-en="Complaint">অভিযোগ</option>
-            <option value="পরামর্শ" data-bn="পরামর্শ" data-en="Suggestion">পরামর্শ</option>
-            <option value="অন্যান্য" data-bn="অন্যান্য" data-en="Other">অন্যান্য</option>
-          </select>
-        </label>
-
-        <label>
-          <span data-bn="আপনার মেসেজ" data-en="Your Message">আপনার মেসেজ</span>
-          <textarea name="body" required minlength="5" maxlength="2000"
-            data-placeholder-bn="বিস্তারিত লিখুন..."
-            data-placeholder-en="Write your message..."
-            placeholder="বিস্তারিত লিখুন..."></textarea>
-        </label>
-
-        <button type="submit" class="submit-btn"
-          data-bn="মেসেজ পাঠান →" data-en="Send Message →">
-          মেসেজ পাঠান →
-        </button>
-
-        <p id="notice" role="status" class="notice"></p>
-      </form>
+        <article class="surface feature-card">
+          <div class="feature-icon">◈</div>
+          <h3 data-bn="ব্যক্তিগত সহায়তা" data-en="Personal Assistance">ব্যক্তিগত সহায়তা</h3>
+          <p data-bn="আপনার সমস্যার জন্য প্রয়োজনীয় সহায়তা পান।" data-en="Get assistance for your individual concerns.">আপনার সমস্যার জন্য প্রয়োজনীয় সহায়তা পান।</p>
+        </article>
+      </div>
     </div>
-
-    <aside class="side-panel">
-      <div class="side-card">
-        <div class="side-icon">💬</div>
-        <h3 data-bn="আমরা শুনছি আপনার কথা" data-en="We're Listening">আমরা শুনছি আপনার কথা</h3>
-        <p data-bn="আপনার মতামত ও সমস্যাগুলো আমাদের কাছে গুরুত্বপূর্ণ। যেকোনো প্রয়োজনে মেসেজ পাঠান।"
-           data-en="Your feedback and concerns matter to us. Send us a message whenever you need help.">
-          আপনার মতামত ও সমস্যাগুলো আমাদের কাছে গুরুত্বপূর্ণ। যেকোনো প্রয়োজনে মেসেজ পাঠান।
-        </p>
-      </div>
-
-      <div class="side-card direct-card">
-        <span class="eyebrow" data-bn="সরাসরি যোগাযোগ" data-en="DIRECT CONTACT">সরাসরি যোগাযোগ</span>
-        <h3 data-bn="আমাদের সাথে যুক্ত থাকুন" data-en="Connect With Us">আমাদের সাথে যুক্ত থাকুন</h3>
-
-        <a class="telegram-link" href="https://t.me/AG_Ai47" target="_blank" rel="noopener">
-          <span class="telegram-icon">➤</span>
-          <span>
-            <strong>Telegram</strong>
-            <small>@AG_Ai47</small>
-          </span>
-          <span class="link-arrow">↗</span>
-        </a>
-      </div>
-
-      <div class="privacy-note">
-        <span>🔒</span>
-        <p data-bn="আপনার দেওয়া তথ্য শুধু সাপোর্টের প্রয়োজনে ব্যবহার করা হবে।"
-           data-en="Your information is used only for support purposes.">
-          আপনার দেওয়া তথ্য শুধু সাপোর্টের প্রয়োজনে ব্যবহার করা হবে।
-        </p>
-      </div>
-    </aside>
-
   </section>
 
-  <section class="tracking-panel" id="track-section">
-    <div class="tracking-icon">✉</div>
-    <span class="eyebrow" data-bn="মেসেজের আপডেট" data-en="MESSAGE UPDATES">মেসেজের আপডেট</span>
-    <h2 data-bn="আপনার উত্তরের খোঁজ নিন" data-en="Check Your Reply">আপনার উত্তরের খোঁজ নিন</h2>
-    <p data-bn="আপনার Tracking Code দিয়ে মেসেজের উত্তর খুঁজে দেখুন।"
-       data-en="Enter your Tracking Code to check your message reply.">
-      আপনার Tracking Code দিয়ে মেসেজের উত্তর খুঁজে দেখুন।
-    </p>
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow" data-bn="আমাদের জানান" data-en="GET IN TOUCH">আমাদের জানান</span>
+        <h2 data-bn="আমাদের সাথে যোগাযোগ করুন" data-en="Contact Our Support Team">আমাদের সাথে যোগাযোগ করুন</h2>
+        <p data-bn="নিচের ফর্মটি পূরণ করে আপনার মেসেজ পাঠিয়ে দিন।" data-en="Fill out the form below and send us your message.">নিচের ফর্মটি পূরণ করে আপনার মেসেজ পাঠিয়ে দিন।</p>
+      </div>
 
-    <div class="tracking-form">
-      <input id="trackingCode" type="text"
-        data-placeholder-bn="Tracking Code লিখুন"
-        data-placeholder-en="Enter Tracking Code"
-        placeholder="Tracking Code">
-      <button id="checkReply" type="button"
-        data-bn="উত্তর দেখুন" data-en="Check Reply">
-        উত্তর দেখুন
-      </button>
+      <div class="contact-grid">
+        <div class="surface form-panel">
+          <div class="panel-heading">
+            <div>
+              <span class="panel-kicker" data-bn="সাপোর্ট ফর্ম" data-en="SUPPORT FORM">সাপোর্ট ফর্ম</span>
+              <h3 data-bn="আপনার মেসেজ লিখুন" data-en="Write Your Message">আপনার মেসেজ লিখুন</h3>
+            </div>
+            <span class="panel-symbol">✎</span>
+          </div>
+
+          <form id="contactForm">
+            <div class="form-row">
+              <label>
+                <span data-bn="আপনার নাম" data-en="Your Name">আপনার নাম</span>
+                <input type="text" name="name" placeholder="আপনার নাম লিখুন" required>
+              </label>
+              <label>
+                <span data-bn="যোগাযোগের তথ্য" data-en="Contact Information">যোগাযোগের তথ্য</span>
+                <input type="text" name="contact" placeholder="ইমেইল / ফোন / Telegram" required>
+              </label>
+            </div>
+
+            <label>
+              <span data-bn="বিষয় নির্বাচন করুন" data-en="Select a Topic">বিষয় নির্বাচন করুন</span>
+              <select name="topic" required>
+                <option value="" data-bn="একটি বিষয় নির্বাচন করুন" data-en="Select a topic">একটি বিষয় নির্বাচন করুন</option>
+                <option value="General Support">General Support</option>
+                <option value="Account Problem">Account Problem</option>
+                <option value="Payment Issue">Payment Issue</option>
+                <option value="Technical Problem">Technical Problem</option>
+                <option value="Complaint">Complaint</option>
+                <option value="Other">Other</option>
+              </select>
+            </label>
+
+            <label>
+              <span data-bn="আপনার বিস্তারিত মেসেজ" data-en="Your Message">আপনার বিস্তারিত মেসেজ</span>
+              <textarea name="body" rows="6" placeholder="আপনার সমস্যাটি বিস্তারিত লিখুন..." required></textarea>
+            </label>
+
+            <div id="notice" class="notice" role="status" aria-live="polite"></div>
+
+            <button type="submit" class="submit-btn">
+              <span data-bn="মেসেজ পাঠিয়ে দিন →" data-en="Send Message →">মেসেজ পাঠিয়ে দিন →</span>
+            </button>
+            <p class="form-note" data-bn="আপনার তথ্য গোপনীয়তার সাথে সংরক্ষণ করা হবে।" data-en="Your information will be handled privately.">আপনার তথ্য গোপনীয়তার সাথে সংরক্ষণ করা হবে।</p>
+          </form>
+        </div>
+
+        <aside class="sidebar">
+          <article class="surface side-card">
+            <span class="side-symbol">✦</span>
+            <h3 data-bn="আপনার কথা আমাদের কাছে গুরুত্বপূর্ণ" data-en="Your voice matters">আপনার কথা আমাদের কাছে গুরুত্বপূর্ণ</h3>
+            <p data-bn="আপনার প্রতিটি প্রশ্ন ও মতামত আমাদের সেবাকে আরও ভালো করতে সাহায্য করে।" data-en="Every question and suggestion helps us improve our service.">আপনার প্রতিটি প্রশ্ন ও মতামত আমাদের সেবাকে আরও ভালো করতে সাহায্য করে।</p>
+          </article>
+
+          <article class="surface side-card telegram-card">
+            <span class="side-symbol">➤</span>
+            <h3 data-bn="Telegram সাপোর্ট" data-en="Telegram Support">Telegram সাপোর্ট</h3>
+            <p data-bn="সরাসরি Telegram-এ আমাদের সাথে যোগাযোগ করুন।" data-en="Contact us directly on Telegram.">সরাসরি Telegram-এ আমাদের সাথে যোগাযোগ করুন।</p>
+            <a href="https://t.me/AG_Ai47" target="_blank" rel="noopener noreferrer" class="telegram-link">Contact on Telegram ↗</a>
+          </article>
+
+          <article class="surface side-card">
+            <span class="side-symbol">◷</span>
+            <h3 data-bn="সাপোর্ট সময়" data-en="Support Availability">সাপোর্ট সময়</h3>
+            <p data-bn="আপনার মেসেজ যেকোনো সময় পাঠাতে পারবেন। আমাদের টিম সুযোগ অনুযায়ী উত্তর দেবে।" data-en="You can send a message anytime. Our team will respond as soon as possible.">আপনার মেসেজ যেকোনো সময় পাঠাতে পারবেন। আমাদের টিম সুযোগ অনুযায়ী উত্তর দেবে।</p>
+          </article>
+        </aside>
+      </div>
     </div>
-
-    <p id="replyNotice" role="status"></p>
-    <div id="replyResult"></div>
   </section>
 
+  <section class="tracking-section" id="tracking">
+    <div class="container">
+      <div class="surface tracking-panel">
+        <div class="tracking-copy">
+          <span class="eyebrow" data-bn="মেসেজের অবস্থা" data-en="MESSAGE STATUS">মেসেজের অবস্থা</span>
+          <h2 data-bn="আপনার মেসেজ ট্র্যাক করুন" data-en="Track Your Message">আপনার মেসেজ ট্র্যাক করুন</h2>
+          <p data-bn="মেসেজ পাঠানোর পর পাওয়া ট্র্যাকিং কোডটি এখানে লিখুন।" data-en="Enter the tracking code you received after submitting your message.">মেসেজ পাঠানোর পর পাওয়া ট্র্যাকিং কোডটি এখানে লিখুন।</p>
+        </div>
+
+        <form id="trackingForm" class="tracking-form">
+          <label for="trackingCode" data-bn="ট্র্যাকিং কোড" data-en="Tracking Code">ট্র্যাকিং কোড</label>
+          <div class="tracking-input-row">
+            <input id="trackingCode" type="text" placeholder="যেমন: HZ-XXXXXXXX" required>
+            <button type="submit" class="submit-btn" data-bn="খুঁজুন" data-en="Search">খুঁজুন</button>
+          </div>
+          <div id="trackingResult" class="tracking-result" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer class="site-footer">
-  <a class="brand footer-brand" href="/">HELP <strong>ZONE</strong></a>
-  <p data-bn="আপনার আস্থাই আমাদের অনুপ্রেরণা।" data-en="Your trust inspires us.">
-    আপনার আস্থাই আমাদের অনুপ্রেরণা।
-  </p>
-  <small>© 2026 Help Zone · Customer Support</small>
+  <div class="container footer-inner">
+    <a class="brand footer-brand" href="#">
+      <span class="brand-icon">✦</span>
+      <span>HELP <strong>ZONE</strong><small>PREMIUM SUPPORT CENTER</small></span>
+    </a>
+    <p>© <span id="currentYear"></span> Help Zone. All rights reserved.</p>
+    <a href="#home" class="back-top" aria-label="Back to top">↑</a>
+  </div>
 </footer>
 
 <script src="/app.js"></script>
 <script>
-const languageBtn = document.getElementById("languageBtn");
-let currentLanguage = localStorage.getItem("helpzone-language") || "bn";
+(() => {
+  const toggle = document.getElementById('languageToggle');
+  let currentLanguage = 'bn';
 
-function changeLanguage(language) {
-  currentLanguage = language;
-  document.documentElement.lang = language;
-  localStorage.setItem("helpzone-language", language);
-
-  document.querySelectorAll("[data-bn][data-en]").forEach(element => {
-    element.innerHTML = element.dataset[language];
+  toggle.addEventListener('click', () => {
+    currentLanguage = currentLanguage === 'bn' ? 'en' : 'bn';
+    document.documentElement.lang = currentLanguage;
+    document.querySelectorAll('[data-bn][data-en]').forEach(element => {
+      element.innerHTML = element.dataset[currentLanguage];
+    });
+    toggle.textContent = currentLanguage === 'bn' ? 'EN' : 'বাংলা';
   });
 
-  document.querySelectorAll("[data-placeholder-bn]").forEach(element => {
-    element.placeholder = language === "bn"
-      ? element.dataset.placeholderBn
-      : element.dataset.placeholderEn;
-  });
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-  languageBtn.textContent = language === "bn" ? "English" : "বাংলা";
-}
+  const trackingForm = document.getElementById('trackingForm');
+  const trackingResult = document.getElementById('trackingResult');
 
-languageBtn.addEventListener("click", () => {
-  changeLanguage(currentLanguage === "bn" ? "en" : "bn");
-});
+  trackingForm.addEventListener('submit', async event => {
+    event.preventDefault();
+    const code = document.getElementById('trackingCode').value.trim();
 
-changeLanguage(currentLanguage);
+    if (!code) return;
 
-document.getElementById("checkReply").addEventListener("click", async () => {
-  const code = document.getElementById("trackingCode").value.trim();
-  const notice = document.getElementById("replyNotice");
-  const result = document.getElementById("replyResult");
+    trackingResult.textContent = 'খোঁজা হচ্ছে...';
 
-  notice.textContent = currentLanguage === "bn" ? "খোঁজা হচ্ছে..." : "Searching...";
-  result.replaceChildren();
+    try {
+      const response = await fetch('/api/messages/track/' + encodeURIComponent(code));
+      const data = await response.json();
 
-  if (!code) {
-    notice.textContent = currentLanguage === "bn"
-      ? "Tracking Code লিখুন।"
-      : "Please enter your Tracking Code.";
-    return;
-  }
+      if (!response.ok) {
+        trackingResult.textContent = data.error || 'কোনো তথ্য পাওয়া যায়নি।';
+        return;
+      }
 
-  try {
-    const response = await fetch("/api/messages/track/" + encodeURIComponent(code));
-    const data = await response.json();
+      const title = document.createElement('strong');
+      title.textContent = 'মেসেজের তথ্য পাওয়া গেছে';
 
-    if (!response.ok) {
-      throw new Error(data.error || (
-        currentLanguage === "bn" ? "মেসেজ পাওয়া যায়নি।" : "Message not found."
-      ));
+      const status = document.createElement('p');
+      status.textContent = 'স্ট্যাটাস: ' + (data.status || 'প্রক্রিয়াধীন');
+
+      const reply = document.createElement('p');
+      reply.textContent = 'উত্তর: ' + (data.reply || 'এখনো কোনো উত্তর দেওয়া হয়নি।');
+
+      trackingResult.replaceChildren(title, status, reply);
+    } catch (error) {
+      trackingResult.textContent = 'সমস্যা হয়েছে। কিছুক্ষণ পর আবার চেষ্টা করুন।';
     }
-
-    notice.textContent = currentLanguage === "bn"
-      ? "আপনার মেসেজ পাওয়া গেছে।"
-      : "Your message was found.";
-
-    const heading = document.createElement("h3");
-    heading.textContent = currentLanguage === "bn"
-      ? "অ্যাডমিনের উত্তর:"
-      : "Admin Reply:";
-
-    const reply = document.createElement("p");
-    reply.textContent = data.reply || (
-      currentLanguage === "bn"
-        ? "এখনো উত্তর দেওয়া হয়নি।"
-        : "No reply yet."
-    );
-
-    result.append(heading, reply);
-
-  } catch (error) {
-    notice.textContent = error.message;
-  }
-});
+  });
+})();
 </script>
 
 </body>
