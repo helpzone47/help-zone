@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", async () => {
   const loginForm = document.getElementById("loginForm");
   const loginPanel = document.getElementById("loginPanel");
@@ -8,6 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   async function loadMessages() {
     const response = await fetch("/api/messages");
+
     if (response.status === 401) {
       loginPanel.classList.remove("hidden");
       inboxPanel.classList.add("hidden");
@@ -29,17 +31,80 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     data.messages.forEach(item => {
       const card = document.createElement("article");
-      const title = document.createElement("h3");
-      const contact = document.createElement("p");
-      const topic = document.createElement("p");
-      const body = document.createElement("p");
 
+      const title = document.createElement("h3");
       title.textContent = item.name;
+
+      const contact = document.createElement("p");
       contact.textContent = "যোগাযোগ: " + item.contact;
+
+      const topic = document.createElement("p");
       topic.textContent = "বিষয়: " + item.topic;
+
+      const body = document.createElement("p");
       body.textContent = item.body;
 
       card.append(title, contact, topic, body);
+
+      if (item.admin_reply) {
+        const oldReply = document.createElement("p");
+        oldReply.textContent = "আপনার উত্তর: " + item.admin_reply;
+        card.append(oldReply);
+      }
+
+      const replyForm = document.createElement("form");
+      const replyBox = document.createElement("textarea");
+      replyBox.name = "reply";
+      replyBox.placeholder = "কাস্টমারকে উত্তর লিখুন...";
+      replyBox.required = true;
+      replyBox.maxLength = 2000;
+
+      const replyButton = document.createElement("button");
+      replyButton.type = "submit";
+      replyButton.textContent = "উত্তর পাঠান";
+
+      const notice = document.createElement("p");
+      notice.setAttribute("role", "status");
+
+      replyForm.append(replyBox, replyButton, notice);
+
+      replyForm.addEventListener("submit", async event => {
+        event.preventDefault();
+
+        const reply = replyBox.value.trim();
+        if (!reply) return;
+
+        replyButton.disabled = true;
+        notice.textContent = "উত্তর পাঠানো হচ্ছে...";
+
+        try {
+          const result = await fetch(
+            `/api/messages/${item.id}/reply`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({ reply })
+            }
+          );
+
+          const data = await result.json();
+
+          if (!result.ok) {
+            throw new Error(data.error || "উত্তর পাঠানো যায়নি");
+          }
+
+          notice.textContent = "উত্তর সফলভাবে সংরক্ষণ হয়েছে!";
+          await loadMessages();
+
+        } catch (error) {
+          notice.textContent = error.message;
+          replyButton.disabled = false;
+        }
+      });
+
+      card.append(replyForm);
       messages.append(card);
     });
   }
@@ -68,8 +133,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
 
       loginNotice.textContent = "লগইন সফল!";
-
       await loadMessages();
+
     } catch (error) {
       loginNotice.textContent = "সার্ভারের সঙ্গে সংযোগ করা যাচ্ছে না।";
     } finally {
@@ -85,6 +150,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     await loadMessages();
   } catch (error) {
-    messages.textContent = "ইনবক্স লোড করা যায়নি। পেজ Refresh করুন।";
+    messages.textContent = "ইনবক্স লোড করা যায়নি। Refresh করুন।";
   }
 });
