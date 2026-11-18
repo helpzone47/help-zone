@@ -1,134 +1,241 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#173b78">
+  <meta name="theme-color" content="#102b57">
+  <meta name="description" content="Help Zone - Premium Customer Support">
   <title>Help Zone | Customer Support</title>
   <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-  <header>
-    <a class="brand" href="/">HELP <span>ZONE</span></a>
-    <a class="nav" href="#send">যোগাযোগ</a>
-  </header>
 
-  <section class="hero">
-    <div class="pill">CUSTOMER SUPPORT</div>
-    <h1>আপনার পাশে, সবসময়</h1>
-    <p>আপনার প্রশ্ন, মতামত বা সমস্যার কথা আমাদের জানান। আমাদের সাপোর্ট টিম আপনাকে সহায়তা করবে।</p>
-  </section>
+<header>
+  <a class="brand" href="/">HELP <span>ZONE</span></a>
 
-  <main class="wrap">
-    <section class="panel" id="send">
-      <h2>আমাদের মেসেজ পাঠান</h2>
-      <p class="muted">কোনো অ্যাকাউন্ট বা লগইন প্রয়োজন নেই। নিচের ফর্মটি পূরণ করুন।</p>
-
-      <form id="contactForm">
-        <label>
-          আপনার নাম
-          <input name="name" required maxlength="80" placeholder="নাম লিখুন">
-        </label>
-
-        <label>
-          মোবাইল / যোগাযোগের তথ্য
-          <input name="contact" required maxlength="80" placeholder="ফোন নম্বর বা ইমেইল">
-        </label>
-
-        <label>
-          বিষয়
-          <select name="topic">
-            <option>সাধারণ জিজ্ঞাসা</option>
-            <option>সেবা সংক্রান্ত প্রশ্ন</option>
-            <option>অভিযোগ</option>
-            <option>পরামর্শ</option>
-            <option>অন্যান্য</option>
-          </select>
-        </label>
-
-        <label>
-          আপনার মেসেজ
-          <textarea name="body" required minlength="5" maxlength="2000" placeholder="আপনার মেসেজ লিখুন..."></textarea>
-        </label>
-
-        <button type="submit">মেসেজ পাঠান</button>
-        <p id="notice" role="status" class="notice"></p>
-      </form>
-    </section>
-
-    <section class="help">
-      <h3>সরাসরি যোগাযোগ</h3>
-      <p>Telegram:
-        <a href="https://t.me/AG_Ai47" target="_blank" rel="noopener">@AG_Ai47</a>
-      </p>
-      <p class="muted">WhatsApp যোগাযোগের নম্বর পরে যুক্ত করা যাবে।</p>
-    </section>
-  </main>
-
-  <section id="track-section" style="max-width:600px;margin:30px auto;padding:20px;border:1px solid #ddd;border-radius:12px;">
-    <h2>আপনার মেসেজের উত্তর দেখুন</h2>
-    <p>আপনার Tracking Code লিখুন।</p>
-
-    <input
-      id="trackingCode"
-      type="text"
-      placeholder="Tracking Code"
-      style="width:100%;padding:12px;margin:10px 0;box-sizing:border-box;"
-    >
-
-    <button id="checkReply" type="button" style="padding:12px 20px;cursor:pointer;">
-      উত্তর দেখুন
+  <div style="display:flex;align-items:center;gap:12px">
+    <button id="languageBtn" type="button"
+      style="width:auto;margin:0;padding:9px 15px;background:#edf4ff;color:#174ea6;box-shadow:none">
+      English
     </button>
+    <a class="nav" href="#send" data-bn="যোগাযোগ" data-en="Contact">যোগাযোগ</a>
+  </div>
+</header>
 
-    <p id="replyNotice" role="status"></p>
-    <div id="replyResult"></div>
+<section class="hero">
+  <div class="pill">HELP ZONE · CUSTOMER SUPPORT</div>
+
+  <h1 data-bn="আপনার পাশে, সবসময়"
+      data-en="We're Always Here For You">
+    আপনার পাশে, সবসময়
+  </h1>
+
+  <p data-bn="আপনার প্রশ্ন, মতামত বা সমস্যার কথা আমাদের জানান। আমাদের সাপোর্ট টিম আপনাকে সহায়তা করবে।"
+     data-en="Tell us your questions, feedback or problems. Our support team is always ready to help you.">
+    আপনার প্রশ্ন, মতামত বা সমস্যার কথা আমাদের জানান। আমাদের সাপোর্ট টিম আপনাকে সহায়তা করবে।
+  </p>
+</section>
+
+<main class="wrap">
+
+  <section class="panel" id="send">
+
+    <h2 data-bn="আমাদের মেসেজ পাঠান"
+        data-en="Send Us a Message">
+      আমাদের মেসেজ পাঠান
+    </h2>
+
+    <p class="muted"
+       data-bn="কোনো অ্যাকাউন্ট বা লগইন প্রয়োজন নেই। নিচের ফর্মটি পূরণ করুন।"
+       data-en="No account or login required. Simply fill out the form below.">
+      কোনো অ্যাকাউন্ট বা লগইন প্রয়োজন নেই। নিচের ফর্মটি পূরণ করুন।
+    </p>
+
+    <form id="contactForm">
+
+      <label>
+        <span data-bn="আপনার নাম" data-en="Your Name">আপনার নাম</span>
+        <input name="name" required maxlength="80"
+          data-placeholder-bn="নাম লিখুন"
+          data-placeholder-en="Enter your name"
+          placeholder="নাম লিখুন">
+      </label>
+
+      <label>
+        <span data-bn="মোবাইল / যোগাযোগের তথ্য"
+              data-en="Mobile / Contact Information">
+          মোবাইল / যোগাযোগের তথ্য
+        </span>
+        <input name="contact" required maxlength="80"
+          data-placeholder-bn="ফোন নম্বর বা ইমেইল"
+          data-placeholder-en="Phone number or email"
+          placeholder="ফোন নম্বর বা ইমেইল">
+      </label>
+
+      <label>
+        <span data-bn="বিষয়" data-en="Subject">বিষয়</span>
+        <select name="topic">
+          <option value="সাধারণ জিজ্ঞাসা" data-bn="সাধারণ জিজ্ঞাসা" data-en="General Inquiry">সাধারণ জিজ্ঞাসা</option>
+          <option value="সেবা সংক্রান্ত প্রশ্ন" data-bn="সেবা সংক্রান্ত প্রশ্ন" data-en="Service Question">সেবা সংক্রান্ত প্রশ্ন</option>
+          <option value="অভিযোগ" data-bn="অভিযোগ" data-en="Complaint">অভিযোগ</option>
+          <option value="পরামর্শ" data-bn="পরামর্শ" data-en="Suggestion">পরামর্শ</option>
+          <option value="অন্যান্য" data-bn="অন্যান্য" data-en="Other">অন্যান্য</option>
+        </select>
+      </label>
+
+      <label>
+        <span data-bn="আপনার মেসেজ" data-en="Your Message">আপনার মেসেজ</span>
+        <textarea name="body" required minlength="5" maxlength="2000"
+          data-placeholder-bn="আপনার মেসেজ লিখুন..."
+          data-placeholder-en="Write your message..."
+          placeholder="আপনার মেসেজ লিখুন..."></textarea>
+      </label>
+
+      <button type="submit" data-bn="মেসেজ পাঠান" data-en="Send Message">
+        মেসেজ পাঠান
+      </button>
+
+      <p id="notice" role="status" class="notice"></p>
+
+    </form>
   </section>
 
-  <footer>© 2026 Help Zone · Customer Support</footer>
+  <section class="help">
+    <h3 data-bn="সরাসরি যোগাযোগ" data-en="Direct Contact">
+      সরাসরি যোগাযোগ
+    </h3>
 
-  <script src="/app.js"></script>
+    <p>Telegram:
+      <a href="https://t.me/AG_Ai47" target="_blank" rel="noopener">
+        @AG_Ai47
+      </a>
+    </p>
 
-  <script>
-    document.getElementById("checkReply").addEventListener("click", async () => {
-      const code = document.getElementById("trackingCode").value.trim();
-      const notice = document.getElementById("replyNotice");
-      const result = document.getElementById("replyResult");
+    <p class="muted"
+       data-bn="WhatsApp যোগাযোগের নম্বর পরে যুক্ত করা যাবে।"
+       data-en="WhatsApp contact number can be added later.">
+      WhatsApp যোগাযোগের নম্বর পরে যুক্ত করা যাবে।
+    </p>
+  </section>
 
-      notice.textContent = "খোঁজা হচ্ছে...";
-      result.textContent = "";
+</main>
 
-      if (!code) {
-        notice.textContent = "Tracking Code লিখুন।";
-        return;
-      }
+<section id="track-section"
+  style="max-width:600px;width:92%;margin:30px auto;padding:25px;border:1px solid #ddd;border-radius:18px;background:white">
 
-      try {
-        const response = await fetch(
-          "/api/messages/track/" + encodeURIComponent(code)
-        );
+  <h2 data-bn="আপনার মেসেজের উত্তর দেখুন"
+      data-en="Check Your Message Reply">
+    আপনার মেসেজের উত্তর দেখুন
+  </h2>
 
-        const data = await response.json();
+  <p data-bn="আপনার Tracking Code লিখুন।"
+     data-en="Enter your Tracking Code.">
+    আপনার Tracking Code লিখুন।
+  </p>
 
-        if (!response.ok) {
-          throw new Error(data.error || "মেসেজ পাওয়া যায়নি।");
-        }
+  <input id="trackingCode" type="text"
+    data-placeholder-bn="Tracking Code লিখুন"
+    data-placeholder-en="Enter Tracking Code"
+    placeholder="Tracking Code"
+    style="width:100%;padding:13px;margin:10px 0;box-sizing:border-box">
 
-        notice.textContent = "আপনার মেসেজ পাওয়া গেছে।";
+  <button id="checkReply" type="button"
+    data-bn="উত্তর দেখুন" data-en="Check Reply"
+    style="padding:13px 20px;cursor:pointer">
+    উত্তর দেখুন
+  </button>
 
-        const heading = document.createElement("h3");
-        heading.textContent = "অ্যাডমিনের উত্তর:";
+  <p id="replyNotice" role="status"></p>
+  <div id="replyResult"></div>
 
-        const reply = document.createElement("p");
-        reply.textContent = data.reply || "এখনো উত্তর দেওয়া হয়নি।";
+</section>
 
-        result.append(heading, reply);
+<footer>
+  © 2026 Help Zone · Customer Support
+</footer>
 
-      } catch (error) {
-        notice.textContent = error.message;
-      }
-    });
-  </script>
+<script src="/app.js"></script>
+
+<script>
+const languageBtn = document.getElementById("languageBtn");
+let currentLanguage = localStorage.getItem("helpzone-language") || "bn";
+
+function changeLanguage(language) {
+  currentLanguage = language;
+  document.documentElement.lang = language;
+  localStorage.setItem("helpzone-language", language);
+
+  document.querySelectorAll("[data-bn][data-en]").forEach(element => {
+    if (element.tagName === "OPTION") {
+      element.textContent = element.dataset[language];
+    } else {
+      element.textContent = element.dataset[language];
+    }
+  });
+
+  document.querySelectorAll("[data-placeholder-bn]").forEach(element => {
+    element.placeholder = language === "bn"
+      ? element.dataset.placeholderBn
+      : element.dataset.placeholderEn;
+  });
+
+  languageBtn.textContent = language === "bn" ? "English" : "বাংলা";
+}
+
+languageBtn.addEventListener("click", () => {
+  changeLanguage(currentLanguage === "bn" ? "en" : "bn");
+});
+
+changeLanguage(currentLanguage);
+
+// Tracking Code reply checker
+document.getElementById("checkReply").addEventListener("click", async () => {
+  const code = document.getElementById("trackingCode").value.trim();
+  const notice = document.getElementById("replyNotice");
+  const result = document.getElementById("replyResult");
+
+  notice.textContent = currentLanguage === "bn" ? "খোঁজা হচ্ছে..." : "Searching...";
+  result.textContent = "";
+
+  if (!code) {
+    notice.textContent = currentLanguage === "bn"
+      ? "Tracking Code লিখুন।"
+      : "Please enter your Tracking Code.";
+    return;
+  }
+
+  try {
+    const response = await fetch("/api/messages/track/" + encodeURIComponent(code));
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || "Message not found.");
+    }
+
+    notice.textContent = currentLanguage === "bn"
+      ? "আপনার মেসেজ পাওয়া গেছে।"
+      : "Your message was found.";
+
+    const heading = document.createElement("h3");
+    heading.textContent = currentLanguage === "bn"
+      ? "অ্যাডমিনের উত্তর:"
+      : "Admin Reply:";
+
+    const reply = document.createElement("p");
+    reply.textContent = data.reply || (
+      currentLanguage === "bn"
+        ? "এখনো উত্তর দেওয়া হয়নি।"
+        : "No reply yet."
+    );
+
+    result.append(heading, reply);
+
+  } catch (error) {
+    notice.textContent = error.message;
+  }
+});
+</script>
+
 </body>
 </html>
