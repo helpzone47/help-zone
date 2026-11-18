@@ -22,9 +22,7 @@ if (form && notice) {
     try {
       const response = await fetch("/api/messages", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
       });
 
@@ -46,12 +44,8 @@ if (form && notice) {
 
         const code = document.createElement("strong");
         code.textContent = result.trackingCode;
-        code.style.display = "block";
-        code.style.padding = "12px";
-        code.style.margin = "10px 0";
-        code.style.background = "#eeeeee";
-        code.style.borderRadius = "8px";
-        code.style.overflowWrap = "anywhere";
+        code.style.cssText =
+          "display:block;padding:12px;margin:10px 0;background:#eee;border-radius:8px;overflow-wrap:anywhere;";
 
         const copyButton = document.createElement("button");
         copyButton.type = "button";
@@ -61,8 +55,8 @@ if (form && notice) {
           try {
             await navigator.clipboard.writeText(result.trackingCode);
             copyButton.textContent = "কপি হয়েছে!";
-          } catch (error) {
-            copyButton.textContent = "কপি করা যায়নি। কোডটি লিখে রাখুন।";
+          } catch {
+            copyButton.textContent = "কপি করা যায়নি। কোড লিখে রাখুন।";
           }
         });
 
@@ -76,9 +70,7 @@ if (form && notice) {
       form.reset();
 
     } catch (error) {
-      notice.textContent =
-        error.message || "সমস্যা হয়েছে। আবার চেষ্টা করুন।";
-
+      notice.textContent = error.message || "আবার চেষ্টা করুন।";
     } finally {
       button.disabled = false;
       button.textContent = "মেসেজ পাঠান";
