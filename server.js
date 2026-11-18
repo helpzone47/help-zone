@@ -1,3 +1,4 @@
+
 require("dotenv").config();
 
 const express = require("express");
@@ -8,6 +9,7 @@ const bcrypt = require("bcryptjs");
 const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
 const path = require("path");
+const crypto = require("crypto");
 
 const app = express();
 const PORT = Number(process.env.PORT || 3000);
@@ -52,6 +54,17 @@ async function initializeDatabase() {
       replied_at TIMESTAMPTZ
     )
   `);
+
+  await pool.query(`
+    ALTER TABLE messages
+    ADD COLUMN IF NOT EXISTS tracking_code TEXT
+  `);
+
+  await pool.query(`
+    CREATE UNIQUE INDEX IF NOT EXISTS messages_tracking_code_unique
+    ON messages (tracking_code)
+    WHERE tracking_code IS NOT NULL
+  `);
 }
 
 app.disable("x-powered-by");
@@ -62,7 +75,7 @@ app.use(helmet({
     directives: {
       defaultSrc: ["'self'"],
       styleSrc: ["'self'", "'unsafe-inline'"],
-      scriptSrc: ["'self'"],
+      scriptSrc: ["'self'", "'unsafe-inline'"],
       imgSrc: ["'self'", "data:"],
       connectSrc: ["'self'"],
       objectSrc: ["'none'"],
@@ -195,6 +208,7 @@ app.get("/api/me", (req, res) => {
   res.json({ admin: !!req.session.admin });
 });
 
+// Customer sends a message and receives a Tracking Code
 app.post("/api/messages", messageLimiter, asyncHandler(async (req, res) => {
   const { name, contact, topic, body } = req.body || {};
   const clean = (v, max) => typeof v === "string" ? v.trim().slice(0, max) : "";
@@ -212,12 +226,49 @@ app.post("/api/messages", messageLimiter, asyncHandler(async (req, res) => {
     return res.status(400).json({ error: "Please enter valid details." });
   }
 
+  const trackingCode = crypto.randomBytes(16).toString("hex");
+
   await pool.query(
-    "INSERT INTO messages (name, contact, topic, body) VALUES ($1, $2, $3, $4)",
-    [n, c, t || "General question", b]
+    `INSERT INTO messages
+     (name, contact, topic, body, tracking_code)
+     VALUES ($1, $2, $3, $4, $5)`,
+    [n, c, t || "General question", b, trackingCode]
   );
 
-  res.json({ ok: true, message: "Your message has been sent." });
+  res.json({
+    ok: true,
+    message: "Your message has been sent.",
+    trackingCode
+  });
+}));
+
+// Customer checks the admin reply using Tracking Code
+app.get("/api/messages/track/:code", asyncHandler(async (req, res) => {
+  const code = typeof req.params.code === "string"
+    ? req.params.code.trim()
+    : "";
+
+  if (!/^[a-f0-9]{32}$/i.test(code)) {
+    return res.status(400).json({ error: "Invalid Tracking Code." });
+  }
+
+  const result = await pool.query(
+    `SELECT admin_reply, status
+     FROM messages
+     WHERE tracking_code = $1
+     LIMIT 1`,
+    [code]
+  );
+
+  if (result.rowCount === 0) {
+    return res.status(404).json({ error: "মেসেজ পাওয়া যায়নি। Tracking Code পরীক্ষা করুন।" });
+  }
+
+  res.json({
+    ok: true,
+    reply: result.rows[0].admin_reply,
+    status: result.rows[0].status
+  });
 }));
 
 app.get("/api/messages", requireAdmin, asyncHandler(async (_req, res) => {
