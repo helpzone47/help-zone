@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap');
+css = r"""@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap');
 
 :root {
   --navy: #0b1f45;
@@ -105,7 +104,6 @@ button, input, select, textarea { font: inherit; }
 }
 
 /* Hero */
-
 .hero {
   min-height: 470px;
   position: relative;
@@ -213,12 +211,9 @@ button, input, select, textarea { font: inherit; }
   box-shadow: 0 17px 35px rgba(0,0,0,.22);
 }
 
-.hero-decoration {
-  display: none;
-}
+.hero-decoration { display: none; }
 
 /* Main content */
-
 .main-wrap {
   width: min(1120px,92%);
   margin: -48px auto 75px;
@@ -293,13 +288,9 @@ button, input, select, textarea { font: inherit; }
   box-shadow: var(--shadow);
 }
 
-.form-panel {
-  padding: 38px;
-}
+.form-panel { padding: 38px; }
 
-.section-heading {
-  margin-bottom: 29px;
-}
+.section-heading { margin-bottom: 29px; }
 
 .eyebrow {
   display: inline-block;
@@ -396,7 +387,6 @@ button:disabled {
 .notice.error { color: #b42318; }
 
 /* Side cards */
-
 .side-panel {
   display: grid;
   gap: 18px;
@@ -407,9 +397,7 @@ button:disabled {
   transition: .25s ease;
 }
 
-.side-card:hover {
-  transform: translateY(-3px);
-}
+.side-card:hover { transform: translateY(-3px); }
 
 .side-icon {
   display: grid;
@@ -471,7 +459,6 @@ button:disabled {
 }
 
 .telegram-link strong, .telegram-link small { display: block; }
-
 .telegram-link strong { font-size: 13px; }
 
 .telegram-link small {
@@ -503,7 +490,6 @@ button:disabled {
 }
 
 /* Tracking */
-
 .tracking-panel {
   max-width: 790px;
   margin: 32px auto 0;
@@ -568,7 +554,6 @@ button:disabled {
 }
 
 /* Footer */
-
 .site-footer {
   padding: 42px 15px;
   text-align: center;
@@ -593,7 +578,6 @@ button:disabled {
 }
 
 /* Admin panel compatibility */
-
 .admin { margin-top: 40px; }
 .hidden { display: none !important; }
 
@@ -671,7 +655,6 @@ button:disabled {
 }
 
 /* Responsive */
-
 @media(max-width:800px) {
   .contact-grid { grid-template-columns: 1fr; }
   .side-panel { grid-template-columns: 1fr 1fr; }
@@ -760,3 +743,8 @@ button:disabled {
     transition-duration: .01ms !important;
   }
 }
+"""
+path = "/mnt/data/style.css"
+with open(path, "w", encoding="utf-8") as f:
+    f.write(css)
+print(f"তৈরি হয়েছে: {path}\nমোট {len(css.splitlines())} লাইন CSS")
