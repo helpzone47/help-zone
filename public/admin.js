@@ -7,7 +7,96 @@ document.addEventListener("DOMContentLoaded", async () => {
   const logoutBtn = document.getElementById("logoutBtn");
   const messages = document.getElementById("messages");
 
+  let lang = localStorage.getItem("helpzone-lang") || "bn";
+
+  const words = {
+    bn: {
+      contact: "যোগাযোগ:",
+      topic: "বিষয়:",
+      reply: "আপনার উত্তর:",
+      placeholder: "কাস্টমারকে উত্তর লিখুন...",
+      send: "উত্তর পাঠান",
+      sending: "উত্তর পাঠানো হচ্ছে...",
+      sent: "উত্তর সফলভাবে সংরক্ষণ হয়েছে!",
+      failed: "উত্তর পাঠানো যায়নি",
+      empty: "এখনো কোনো মেসেজ আসেনি।",
+      loading: "ইনবক্স লোড হচ্ছে...",
+      loadError: "ইনবক্স লোড করা যায়নি। Refresh করুন।",
+      login: "লগইন হচ্ছে...",
+      loginSuccess: "লগইন সফল!",
+      loginFailed: "লগইন ব্যর্থ হয়েছে।",
+      connection: "সার্ভারের সঙ্গে সংযোগ করা যাচ্ছে না।",
+      delete: "মুছে ফেলুন",
+      deleting: "মুছে ফেলা হচ্ছে...",
+      deleted: "মেসেজ মুছে ফেলা হয়েছে!",
+      deleteConfirm: "আপনি কি এই মেসেজটি মুছে ফেলতে চান?",
+      deleteFailed: "মেসেজ মুছে ফেলা যায়নি"
+    },
+    en: {
+      contact: "Contact:",
+      topic: "Subject:",
+      reply: "Your reply:",
+      placeholder: "Write a reply to the customer...",
+      send: "Send Reply",
+      sending: "Sending reply...",
+      sent: "Reply saved successfully!",
+      failed: "Could not send reply",
+      empty: "No messages yet.",
+      loading: "Loading inbox...",
+      loadError: "Could not load inbox. Please refresh.",
+      login: "Logging in...",
+      loginSuccess: "Login successful!",
+      loginFailed: "Login failed.",
+      connection: "Could not connect to the server.",
+      delete: "Delete",
+      deleting: "Deleting...",
+      deleted: "Message deleted!",
+      deleteConfirm: "Do you want to delete this message?",
+      deleteFailed: "Could not delete the message"
+    }
+  };
+
+  const t = key => words[lang][key] || key;
+
+  function getLanguageButton() {
+    return document.querySelector(
+      "#languageToggle, #langToggle, #languageBtn, [data-lang-toggle], .language-toggle"
+    ) || [...document.querySelectorAll("button")].find(button =>
+      /বাংলা|english/i.test(button.textContent)
+    );
+  }
+
+  function updateLanguageButton() {
+    const button = getLanguageButton();
+    if (button) {
+      button.textContent = lang === "bn" ? "English" : "বাংলা";
+    }
+  }
+
+  function applyLanguage() {
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll("[data-bn][data-en]").forEach(element => {
+      element.textContent = lang === "bn"
+        ? element.dataset.bn
+        : element.dataset.en;
+    });
+
+    updateLanguageButton();
+  }
+
+  const languageButton = getLanguageButton();
+
+  languageButton?.addEventListener("click", () => {
+    lang = lang === "bn" ? "en" : "bn";
+    localStorage.setItem("helpzone-lang", lang);
+    applyLanguage();
+    loadMessages();
+  });
+
   async function loadMessages() {
+    messages.textContent = t("loading");
+
     const response = await fetch("/api/messages");
 
     if (response.status === 401) {
@@ -16,7 +105,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    if (!response.ok) throw new Error("মেসেজ লোড হয়নি");
+    if (!response.ok) {
+      throw new Error(t("loadError"));
+    }
 
     const data = await response.json();
 
@@ -25,7 +116,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     messages.replaceChildren();
 
     if (!data.messages || data.messages.length === 0) {
-      messages.textContent = "এখনো কোনো মেসেজ আসেনি।";
+      messages.textContent = t("empty");
       return;
     }
 
@@ -33,35 +124,36 @@ document.addEventListener("DOMContentLoaded", async () => {
       const card = document.createElement("article");
 
       const title = document.createElement("h3");
-      title.textContent = item.name;
+      title.textContent = item.name || "";
 
       const contact = document.createElement("p");
-      contact.textContent = "যোগাযোগ: " + item.contact;
+      contact.textContent = t("contact") + " " + (item.contact || "");
 
       const topic = document.createElement("p");
-      topic.textContent = "বিষয়: " + item.topic;
+      topic.textContent = t("topic") + " " + (item.topic || "");
 
       const body = document.createElement("p");
-      body.textContent = item.body;
+      body.textContent = item.body || "";
 
       card.append(title, contact, topic, body);
 
       if (item.admin_reply) {
         const oldReply = document.createElement("p");
-        oldReply.textContent = "আপনার উত্তর: " + item.admin_reply;
+        oldReply.textContent = t("reply") + " " + item.admin_reply;
         card.append(oldReply);
       }
 
       const replyForm = document.createElement("form");
+
       const replyBox = document.createElement("textarea");
       replyBox.name = "reply";
-      replyBox.placeholder = "কাস্টমারকে উত্তর লিখুন...";
+      replyBox.placeholder = t("placeholder");
       replyBox.required = true;
       replyBox.maxLength = 2000;
 
       const replyButton = document.createElement("button");
       replyButton.type = "submit";
-      replyButton.textContent = "উত্তর পাঠান";
+      replyButton.textContent = t("send");
 
       const notice = document.createElement("p");
       notice.setAttribute("role", "status");
@@ -75,7 +167,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (!reply) return;
 
         replyButton.disabled = true;
-        notice.textContent = "উত্তর পাঠানো হচ্ছে...";
+        notice.textContent = t("sending");
 
         try {
           const result = await fetch(
@@ -89,13 +181,13 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
           );
 
-          const data = await result.json();
+          const resultData = await result.json();
 
           if (!result.ok) {
-            throw new Error(data.error || "উত্তর পাঠানো যায়নি");
+            throw new Error(resultData.error || t("failed"));
           }
 
-          notice.textContent = "উত্তর সফলভাবে সংরক্ষণ হয়েছে!";
+          notice.textContent = t("sent");
           await loadMessages();
 
         } catch (error) {
@@ -104,7 +196,37 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
       });
 
-      card.append(replyForm);
+      const deleteButton = document.createElement("button");
+      deleteButton.type = "button";
+      deleteButton.textContent = t("delete");
+
+      deleteButton.addEventListener("click", async () => {
+        if (!confirm(t("deleteConfirm"))) return;
+
+        deleteButton.disabled = true;
+        deleteButton.textContent = t("deleting");
+
+        try {
+          const result = await fetch(`/api/messages/${item.id}`, {
+            method: "DELETE"
+          });
+
+          const resultData = await result.json();
+
+          if (!result.ok) {
+            throw new Error(resultData.error || t("deleteFailed"));
+          }
+
+          await loadMessages();
+
+        } catch (error) {
+          alert(error.message);
+          deleteButton.disabled = false;
+          deleteButton.textContent = t("delete");
+        }
+      });
+
+      card.append(replyForm, deleteButton);
       messages.append(card);
     });
   }
@@ -114,12 +236,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const button = loginForm.querySelector("button");
     button.disabled = true;
-    loginNotice.textContent = "লগইন হচ্ছে...";
+    loginNotice.textContent = t("login");
 
     try {
       const response = await fetch("/api/login", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json"
+        },
         body: JSON.stringify({
           password: loginForm.elements.password.value
         })
@@ -128,15 +252,15 @@ document.addEventListener("DOMContentLoaded", async () => {
       const result = await response.json();
 
       if (!response.ok) {
-        loginNotice.textContent = result.error || "লগইন ব্যর্থ হয়েছে।";
+        loginNotice.textContent = result.error || t("loginFailed");
         return;
       }
 
-      loginNotice.textContent = "লগইন সফল!";
+      loginNotice.textContent = t("loginSuccess");
       await loadMessages();
 
     } catch (error) {
-      loginNotice.textContent = "সার্ভারের সঙ্গে সংযোগ করা যাচ্ছে না।";
+      loginNotice.textContent = t("connection");
     } finally {
       button.disabled = false;
     }
@@ -147,9 +271,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     location.reload();
   });
 
+  applyLanguage();
+
   try {
     await loadMessages();
   } catch (error) {
-    messages.textContent = "ইনবক্স লোড করা যায়নি। Refresh করুন।";
+    messages.textContent = t("loadError");
   }
 });
